@@ -58,3 +58,45 @@ console.log(result)
 
 //6 print multiplication table
 
+let num =7;
+let rows = 10;
+for(let i = 1; i <= rows; i++){
+    console.log(num + "x" + i + "=" +(num*i))
+}
+
+//7 reverse a number
+
+let n1=12345;
+let result1=n1.toString().split('').reverse().join('');
+console.log(result1);
+
+
+//8 palindrome check(number)
+
+let nnum = 121;
+let reverse1 = nnum.toString().split('').reverse().join('');
+if(nnum == reverse1){
+    console.log(`${nnum}is palindrom`)
+}else{
+    console.log(`${nnum}is not palindrom`)
+}
+
+
+//9 check prime number
+
+let number3=7;
+let prime = number3>1;
+for(let i=2;i<number3;i++){
+    if(number3 % i==0){
+        prime=false;
+        break;
+    }
+}
+console.log(prime ? `${number3}prime` : `${number3}not prime`)
+
+
+//10 count digits in a number
+
+let num1=5023;
+let count=num1.toString().length;
+console.log("Digits",count)
