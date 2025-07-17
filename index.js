@@ -19,3 +19,10 @@ if (number % 2 === 0) {
 
 //2 find the maximum of two numbers
 
+let number1 = 5;
+let number2 = 9;
+if(number1>number2){
+    console.log("number 1 is greater")
+}else{
+    console.log("number2 is greater")
+}
