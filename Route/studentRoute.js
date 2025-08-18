@@ -1,11 +1,36 @@
 const express = require("express");
 const Router = express.Router();
-const studentController = require("../controllers/studentsController");
+const studentsController = require("../controllers/studentsController");
+const {
+  createValidator,
+  updateValidator,
+  validate,
 
-Router.get("/index", studentController.index);
-Router.get("/show/:id", studentController.show);
-Router.post("/store", studentController.store);
-Router.put("/update/:id", studentController.update);
-Router.delete("/delete/:id", studentController.delete);
+}= require("../validators/studentValidators");
+
+
+
+Router.get("/index", studentsController.index);
+Router.get("/show/:id", studentsController.show);
+Router.post("/store", (req, res, next) => {
+  const result = validate(createValidator, req.body);
+
+  if (!result.success) {
+    return res.status(400).json({ status: "error", errors: result.errors });
+  }
+
+  studentsController.store(req, res, next);
+});
+Router.put("/update/:id", (req, res, next) => {
+  const result = validate(updateValidator, req.body);
+
+  if (!result.success) {
+    return res.status(400).json({ status: "error", errors: result.errors });
+  }
+   next();
+}, studentsController.update);
+Router.delete("/delete/:id", studentsController.delete);
 
 module.exports = Router;
+
+
