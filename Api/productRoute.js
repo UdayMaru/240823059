@@ -5,7 +5,7 @@ const {
     createValidator,
     updateValidator,
     validate,
-} = require("./productvalidator");
+} = require("./productvalidator.js");
 
 Router.get("/index1",productController.index1);
 Router.get("/show/:id", productController.show);

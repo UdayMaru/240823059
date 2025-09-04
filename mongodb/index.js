@@ -16,18 +16,44 @@ const studentSchema=new mongoose.Schema({
 
 const Student=mongoose.model("Student",studentSchema);
 
-console.log("MongoDB connected successfully");
+console.log("Mongodb connected successfully");
+
+Student.find()
+    .then((allstudent) =>{
+        console.log("All student retriveved successfully:",allstudent);
+    })
+    .catch((error) =>{
+        console.error("Error retriveing student:",error);
+    });
+
+    Student.find({department:"Computer Science"})
+    .then((allstudent) =>{
+        console.log("All student retriveved successfully:",allstudent);
+    })
+    .catch((error) =>{
+        console.error("Error retriveing student:",error);
+    });
+
+//const student = new Student({
+//    name: "Uday Maru",
+//    department: "Computer Science",
+//    startYear: 2020,
+//    endYear: 2024,
+//    enrollmentNo: 240823059,
+//    address: "Dwarka",
+//});
 
 const student = new Student({
-    name: "Uday Maru",
+    name: "Ravi Pithadiya",
     department: "Computer Science",
     startYear: 2020,
     endYear: 2024,
-    enrollmentNo: 240823059,
-    address: "Dwarka",
+    enrollmentNo: 240823068,
+    address: "Rajkot",
 });
 
 student.save().then(() => {console.log("Student saved successfully");
 })
-.catch((err) => {console.error("Error saving student:",error);
+.catch((error) => {console.error("Error saving student:",error);
 });
+
