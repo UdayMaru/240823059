@@ -1,8 +1,6 @@
 const mongoose=require("mongoose");
 
 mongoose.connect("mongodb+srv://maruuday3_db_user:Ahir0007@mca.orgmzel.mongodb.net/?retryWrites=true&w=majority&appName=MCA",{
-    useNewUrlParser:true,
-    useUnifiedTopology:true,
 });
 
 const studentSchema=new mongoose.Schema({
